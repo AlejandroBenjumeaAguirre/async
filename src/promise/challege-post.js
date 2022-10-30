@@ -1,7 +1,5 @@
 import fetch from 'node-fetch';
-
 const API = 'https://api.escuelajs.co/api/v1';
-
 function postData(urlApi, data) {
     const response = fetch(urlApi, {
         method: 'POST',
@@ -14,7 +12,6 @@ function postData(urlApi, data) {
     });
     return response;
 }
-
 const data = {
     "title": "Alejandro",
     "price": 10,
@@ -22,7 +19,6 @@ const data = {
     "categoryId": 1,
     "images": ["https://placeimg.com/640/480/any"]
 }
-
 postData(`${API}/products`, data)
     .then(response => response.json())
     .then(data => console.log(data));

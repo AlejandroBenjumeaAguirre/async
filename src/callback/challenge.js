@@ -3,7 +3,6 @@ const API = 'https://api.escuelajs.co/api/v1';
 
 function fetchData(urlApi, callback) {
     let xhttp = new XMLHttpRequest();
-
     xhttp.open('GET', urlApi, true);
     xhttp.onreadystatechange = function (event) {
         if(xhttp.readyState === 4){
@@ -15,12 +14,8 @@ function fetchData(urlApi, callback) {
             return callback(error, null);
         }
     }
-
     xhttp.send();
-
 }
-
-
 fetchData(`${API}/products`, function(error, data){
     if(error){
         return console.error(error);
@@ -29,7 +24,6 @@ fetchData(`${API}/products`, function(error, data){
         if(error2){
             return console.error(error2);
         }
-
         fetchData(`${API}/categories/${data2?.category?.id}`, function(error3, data3){
             if(error3){
                 return console.error(error3);
